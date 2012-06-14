@@ -1,0 +1,34 @@
+message.js jQuery/Twitter Bootstrap notification/error message Plugin
+
+Creates a simple Boostrap alert displaying notifications and messages in any 
+element you designate.  
+
+This plugin was designed for use with jQuery 1.7.2 and Twitter Bootstrap 2.0.4
+
+Simplest implementation:
+$('html').message('First Name may not contain less than 4 characters!');
+
+This will cause an alert to slide down from the nav bar containing the message text
+Note that in this implementation, the plugin captures the "html" selector and attaches 
+the message to the first container div after the nav bar. If you aren't using the
+nav bar/container setup, simply specify the proper element in place of "html" or change 
+the default in the plugin on line 34.
+
+Specific element implementation:
+$('.login-form').message('First Name may not contain less than 4 characters!');
+
+Array of messages:
+$('.login-form').message({
+error_content: ['First Name may not contain less than 4 characters!', 'First Name may only contain alpha-numeric characters!']
+});
+
+All options w/ descriptions
+$('.login-form').message({
+error_content: ['First Name may not contain less than 4 characters!', 'First Name may only contain alpha-numeric characters!'], //Content, may be a string or an array for multiple errors
+error_type: ['info', 'error'], //Bootstrap alert type, changes color. Default is "error" (red), options are "info", "warning", "error" and "success". May be a string or an array for multiple errors. If error_content has more values than error_type, the last color specified is kept.
+error_duration: 2000, //Delay until message self-dismisses. Set to 0 or don't include at all to have messages never self-dismiss.
+error_window_type: 'main', //Specifies width of alert, options are "main" (600 pixels of width), "modal" (400 pixels of width), or any number. Default is "main" 
+error_displacement: 1, //Specifies if message should move content below it, or overlap. Default is overlap (1). 
+error_title: ['Error!'] //Places a bold title in the message on its own line. May be a string or an array for multiple errors. If error_content has more values than error_title, the last title is kept for extra messages. 
+});
+
